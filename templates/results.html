@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+</head>
+<body>
+    <h1>Query Image</h1>
+    <img src="{{ url_for('static', filename='uploads/' + query_image) }}" alt="Query Image" style="width: 300px;">
+    
+    <h1>Similar Images</h1>
+    <div>
+        {% for image in similar_images %}
+            <img src="{{ url_for('static', filename=image) }}" alt="Similar Image" style="width: 150px;">
+        {% endfor %}
+    </div>
+
+    <form action="{{ url_for('index') }}" method="get">
+        <button type="submit">Upload Another Image</button>
+    </form>
+</body>
+</html>
